@@ -24,6 +24,7 @@ Comprehensive repository for **HACKOWEEK 5th Semester** coursework, practicals, 
 | [**WEEK7 - WEEK8**](./WEEK7%20-%20WEEK8/) | **Supervised Machine Learning** | Linear, Polynomial, Ridge, and Lasso Regression; Logistic Regression & K-Nearest Neighbors (KNN); interactive model evaluation studio |
 | [**WEEK9 - WEEK10**](./WEEK9%20-%20WEEK10/) | **ML Pipelines & Clustering** | Scikit-Learn `ColumnTransformer` pipelines, Stratified K-Fold CV, ROC-AUC curves, K-Means, Hierarchical & DBSCAN clustering |
 | [**WEEK11 - WEEK12**](./WEEK11%20-%20WEEK12/) | **Dimensionality Reduction** | Principal Component Analysis (PCA) & t-distributed Stochastic Neighbor Embedding (t-SNE) projections |
+| [**WEEK 13 - WEEK 14**](./WEEK%2013%20-%20WEEK%2014/) | **Ensemble Methods & Regularization** | Bagging (Random Forest), Boosting (GradientBoosting, XGBoost, LightGBM), Bias-Variance trade-off, Overfitting/Underfitting diagnostics, L1/L2 regularization & C-sweep studio |
 
 ---
 
@@ -80,6 +81,14 @@ pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyte
 - **Week 11-12 (Dimensionality Reduction):**
   ```bash
   python "WEEK11 - WEEK12/dimensionality_reduction.py"
+  ```
+
+- **Week 13-14 (Ensemble Methods & Regularization Studio):**
+  ```bash
+  cd "WEEK 13 - WEEK 14"
+  pip install -r requirements or flask flask-cors scikit-learn pandas numpy xgboost lightgbm
+  python app.py
+  # Access at http://localhost:5006
   ```
 
 ---
