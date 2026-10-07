@@ -5,17 +5,32 @@
 [![PCA](https://img.shields.io/badge/Dimensionality%20Reduction-Eigen%20Decomposition-green.svg)](https://en.wikipedia.org/wiki/Principal_component_analysis)
 [![Jupyter](https://img.shields.io/badge/Notebook-Jupyter-orange.svg)](notebooks/week5_week6_linear_algebra_calculus.ipynb)
 
+## 👤 Student Information
+- **Name:** Tanmay Sankulwar
+- **PRN:** 24070521058
+- **Program:** B.Tech Computer Science / Information Technology (5th Semester)
+- **GitHub Profile:** [@Tanmay-1607](https://github.com/Tanmay-1607)
+- **Repository:** [HACKOWEEK-SEM-V-2026-27](https://github.com/Tanmay-1607/HACKOWEEK-SEM-V-2026-27)
+
+---
+
 ## 📌 Syllabus Overview (SIT-N Hack-o-Week 5th Semester)
-- **Linear Algebra**: Vectors, matrices, dot product, norms, cosine similarity, eigenvalues and eigenvectors (intuition-level & PCA on the student covariance matrix).
-- **Calculus**: Numerical & analytical derivatives, gradient vectors $\nabla J$, gradient descent optimization (fitting Study Hours vs CGPA on the Kaggle dataset), and the chain rule for neural network backpropagation intuition.
+- **Linear Algebra**:
+  - Vectors, Euclidean norm, dot products, vector projections, and cosine similarity.
+  - Matrices, matrix multiplication, inverse, transpose, and determinant computation.
+  - Eigenvalues and eigenvectors: Intuition-level decomposition of student mark covariance matrix for PCA.
+- **Calculus**:
+  - Derivatives, gradient vectors $\nabla J$, and multivariable optimization.
+  - Gradient descent implementation for fitting Study Hours vs CGPA on the Kaggle dataset.
+  - Chain rule applied to computational graphs for neural network backpropagation intuition.
 
 ---
 
 ## 📓 Jupyter Notebook
-The complete mathematical explanations, proofs, and executable code cells are contained in:
+The complete mathematical derivations, NumPy implementations, and visual step-by-step proofs are contained in:
 [`notebooks/week5_week6_linear_algebra_calculus.ipynb`](notebooks/week5_week6_linear_algebra_calculus.ipynb)
 
-To launch the notebook:
+### Launch Notebook Locally:
 ```bash
 cd "WEEK5 - WEEK6"
 jupyter notebook notebooks/week5_week6_linear_algebra_calculus.ipynb
@@ -23,17 +38,47 @@ jupyter notebook notebooks/week5_week6_linear_algebra_calculus.ipynb
 
 ---
 
-## 🌐 Interactive Math for ML Explorer
-An interactive browser interface has been developed allowing users to:
-1. **⚡ Vector Operations**: Live dot product, norm, angle, and cosine similarity between arbitrary vectors.
-2. **📐 2D Matrix Visualizer**: Canvas visualizer rendering linear transformations on the unit square and computing determinants.
-3. **🧬 Covariance Matrix & Eigenvalues (PCA)**: Interactive decomposition of Kaggle student academic marks.
-4. **📉 Gradient Descent Simulator**: Configurable learning rate $\alpha$ and epochs, plotting real-time MSE loss convergence.
-5. **🔗 Chain Rule & Backpropagation Trace**: Visualizing forward propagation and backpropagation step-by-step.
+## 🌐 Interactive Math for ML Studio
+An interactive web application featuring 5 real-time math exploration modules:
+1. **⚡ Vector Operations**: Computes Euclidean norm, dot product, angle in degrees, and cosine similarity between interactive vectors.
+2. **📐 2D Matrix Visualizer**: Canvas rendering linear transformations ($2 \times 2$) on the unit square and calculating determinants (area scaling factor).
+3. **🧬 Covariance Matrix & Eigenvalues (PCA)**: Interactive eigen-decomposition of Kaggle student academic marks (Math, Reading, Writing) to derive principal variance directions.
+4. **📉 Gradient Descent Simulator**: Configurable learning rate $\alpha$ and epochs, rendering real-time MSE loss convergence curves.
+5. **🔗 Chain Rule & Backpropagation Trace**: Visualizes forward pass and backward error propagation through a composite scalar function.
 
-### How to Run the Web Dashboard:
+---
+
+## 🚀 How to Run
+
+### 1. Requirements
+```bash
+pip install flask flask-cors numpy pandas matplotlib jupyter
+```
+
+### 2. Launch the Application
 ```bash
 cd "WEEK5 - WEEK6"
 python app.py
 ```
-Then open: **`http://localhost:5002`**
+Open your browser and navigate to: **`http://localhost:5002`**
+
+---
+
+## 📂 Project Structure
+
+```
+WEEK5 - WEEK6/
+├── app.py                      # Flask server with API endpoints (port 5002)
+├── math_engine.py              # Mathematical calculation backend algorithms
+├── README.md                   # Week 5-6 documentation
+├── data/
+│   └── kaggle_student_performance.csv  # Benchmark student dataset
+├── notebooks/
+│   └── week5_week6_linear_algebra_calculus.ipynb # Step-by-step math notebook
+└── public/
+    ├── index.html              # Interactive canvas & simulation interface
+    ├── css/
+    │   └── styles.css          # Theme styling
+    └── js/
+        └── app.js              # Vector rendering, matrix math & chart logic
+```

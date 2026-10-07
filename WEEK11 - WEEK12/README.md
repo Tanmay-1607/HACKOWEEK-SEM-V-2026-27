@@ -1,13 +1,22 @@
-# Week 11–12: Dimensionality Reduction with PCA and t-SNE
+# Week 11 – Week 12: Dimensionality Reduction with PCA & t-SNE
 
-This practical applies **Principal Component Analysis (PCA)** and **t-distributed Stochastic Neighbor Embedding (t-SNE)** to the student-performance dataset used in Week 9–10.
+[![PCA](https://img.shields.io/badge/Dimensionality%20Reduction-PCA-blue.svg)](https://scikit-learn.org/stable/modules/decomposition.html#pca)
+[![t-SNE](https://img.shields.io/badge/Manifold%20Learning-t--SNE-green.svg)](https://scikit-learn.org/stable/modules/manifold.html#t-sne)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.4+-orange.svg)](https://scikit-learn.org/)
 
-## Dataset
+## 👤 Student Information
+- **Name:** Tanmay Sankulwar
+- **PRN:** 24070521058
+- **Program:** B.Tech Computer Science / Information Technology (5th Semester)
+- **GitHub Profile:** [@Tanmay-1607](https://github.com/Tanmay-1607)
+- **Repository:** [HACKOWEEK-SEM-V-2026-27](https://github.com/Tanmay-1607/HACKOWEEK-SEM-V-2026-27)
 
-Source: [`WEEK9 - WEEK10/data/kaggle_student_performance.csv`](../WEEK9%20-%20WEEK10/data/kaggle_student_performance.csv)
+---
 
-The analysis uses the following academic and engagement features:
+## 📌 Syllabus Overview (SIT-N Hack-o-Week 5th Semester)
+This practical applies **Principal Component Analysis (PCA)** and **t-distributed Stochastic Neighbor Embedding (t-SNE)** to the multi-dimensional student academic dataset from Week 9–10.
 
+### Features Analyzed:
 - `CGPA`
 - `AttendanceRate`
 - `StudyHoursPerWeek`
@@ -15,67 +24,49 @@ The analysis uses the following academic and engagement features:
 - `ReadingScore`
 - `WritingScore`
 
-Identifiers and personal fields are intentionally excluded. The numeric features are standardized before dimensionality reduction so that features with larger numeric scales do not dominate the result.
+*All numeric features are standardized using `StandardScaler` prior to dimensionality reduction to prevent variables with larger numeric scales from dominating the variance axes.*
 
-## Concepts
+---
 
-### PCA intuition
+## 💡 Theoretical Concepts
 
-PCA creates new, uncorrelated axes called **principal components**. The first component captures the greatest possible variance in the data, the second captures the greatest remaining variance, and so on. PCA is useful for:
+### 1. Principal Component Analysis (PCA)
+- **Linear Transformation**: Identifies orthogonal axes (principal components) maximizing the variance of projected data points.
+- **Dimensionality Reduction**: Compresses multi-dimensional correlated variables into a compact set of uncorrelated components.
+- **Explained Variance**: Quantifies the exact ratio of total information retained across each component.
+- **Global Structure Preservation**: Retains large-scale pairwise distances and global geometric variance.
 
-- reducing many correlated features to a smaller set;
-- removing redundancy before modeling;
-- visualizing high-dimensional data in two dimensions;
-- measuring how much information is retained using explained variance.
+### 2. t-Distributed Stochastic Neighbor Embedding (t-SNE)
+- **Non-Linear Manifold Learning**: Converts pairwise similarities into probabilities and maps them into low-dimensional space.
+- **Local Neighborhood Preservation**: Clusters points that are close in high-dimensional feature space.
+- **Exploratory Visualization**: Ideal for discovering clusters and manifold geometry in 2D projections.
 
-PCA is a linear technique, so the resulting projection preserves global variance patterns rather than all local relationships.
+---
 
-### t-SNE intuition
+## 🚀 How to Run
 
-t-SNE converts pairwise similarities into probabilities and searches for a low-dimensional map with similar neighborhood probabilities. Points that are close in the original feature space tend to remain close in the 2D visualization.
-
-It is useful for exploring possible groups, outliers, and local structure. Unlike PCA, t-SNE is primarily a visualization method:
-
-- distances between far-apart groups should not be over-interpreted;
-- cluster sizes and spacing can change between runs;
-- results depend on `perplexity`, initialization, and `random_state`;
-- it should not normally be used as a production feature transformation.
-
-## Requirements
-
+### 1. Install Dependencies
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+pip install pandas numpy scikit-learn matplotlib seaborn
 ```
 
-## Run the analysis
-
+### 2. Execute the Dimensionality Reduction Script
 From the repository root:
-
 ```bash
 python "WEEK11 - WEEK12/dimensionality_reduction.py"
 ```
 
-The script prints the PCA explained variance and saves these figures in this folder:
+The script prints the PCA explained variance ratios and saves visual figures:
+- `pca_projection.png` — 2D scatter plot of students projected onto PC1 and PC2.
+- `pca_explained_variance.png` — Component-wise and cumulative explained variance scree plot.
+- `tsne_projection.png` — 2D t-SNE manifold projection.
 
-- `pca_projection.png` — students projected onto the first two principal components;
-- `pca_explained_variance.png` — variance explained by each component and cumulatively;
-- `tsne_projection.png` — t-SNE 2D visualization.
+---
 
-The plots are colored by the existing `Distinction` indicator (`CGPA >= 8.5`) only for interpretation; the label is not used to fit PCA or t-SNE.
+## 📂 Project Structure
 
-## Interpretation
-
-- A high cumulative explained-variance ratio for the first two or three components means the dataset can be represented compactly with limited information loss.
-- PCA axes are linear combinations of the original features. Their loadings can be inspected to understand which academic or engagement variables influence each component.
-- t-SNE can reveal local neighborhoods among students, but apparent clusters should be treated as exploratory rather than definitive evidence of separable student groups.
-
-## Files
-
-```text
+```
 WEEK11 - WEEK12/
-├── README.md
-├── dimensionality_reduction.py
-├── pca_projection.png          # generated after running the script
-├── pca_explained_variance.png  # generated after running the script
-└── tsne_projection.png         # generated after running the script
+├── README.md                   # Week 11-12 documentation
+└── dimensionality_reduction.py # PCA & t-SNE modeling and plotting script
 ```
