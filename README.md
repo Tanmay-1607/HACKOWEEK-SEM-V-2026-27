@@ -26,6 +26,7 @@ Comprehensive repository for **HACKOWEEK 5th Semester** coursework, practicals, 
 | [**WEEK11 - WEEK12**](./WEEK11%20-%20WEEK12/) | **Dimensionality Reduction** | Principal Component Analysis (PCA) & t-distributed Stochastic Neighbor Embedding (t-SNE) projections |
 | [**WEEK 13 - WEEK 14**](./WEEK%2013%20-%20WEEK%2014/) | **Ensemble Methods & Regularization** | Bagging (Random Forest), Boosting (GradientBoosting, XGBoost, LightGBM), Bias-Variance trade-off, Overfitting/Underfitting diagnostics, L1/L2 regularization & C-sweep studio |
 | [**WEEK 15 - WEEK 16**](./WEEK%2015%20-%20WEEK%2016/) | **Neural Networks from Scratch & Model Deployment** | Model persistence (Pickle vs Joblib), Perceptrons & linear separability (XOR), Activation calculus (Sigmoid/ReLU/Leaky ReLU/Tanh), Loss functions, Optimizers (SGD, Adam), pure NumPy deep neural net |
+| [**WEEK 17 - WEEK 18**](./WEEK%2017%20-%20WEEK%2018/) | **Deep Learning Architectures, Transfer Learning & LLMs** | PyTorch autograd & CUDA, CNN image classifier, RNN/LSTM/GRU sequence forecasting, DL Regularization (Dropout/BatchNorm/EarlyStopping), Pretrained ResNet-18, Hugging Face Transformers & LLM APIs studio |
 
 ---
 
@@ -39,7 +40,7 @@ cd HACKOWEEK-SEM-V-2026-27
 
 ### 2. Install Dependencies
 ```bash
-pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyter joblib
+pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyter joblib torch torchvision transformers
 ```
 
 ### 3. Running Practicals & Web Studios
@@ -96,6 +97,13 @@ pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyte
   cd "WEEK 15 - WEEK 16"
   python app.py
   # Access at http://localhost:5007
+  ```
+
+- **Week 17-18 (Deep Learning & LLMs Studio):**
+  ```bash
+  cd "WEEK 17 - WEEK 18"
+  python app.py
+  # Access at http://localhost:5008
   ```
 
 ---

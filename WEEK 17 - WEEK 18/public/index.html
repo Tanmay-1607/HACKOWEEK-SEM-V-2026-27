@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Tanmay Sankulwar">
+  <meta name="student-prn" content="24070521058">
+  <title>Deep Learning &amp; LLMs Studio | Week 17 &amp; 18 HACKOWEEK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand-wrapper">
+        <div class="brand-icon">🔥</div>
+        <div class="brand-text">
+          <h1>Deep Learning &amp; LLMs Studio</h1>
+          <span class="brand-badge">W17-W18: PyTorch &bull; CNNs &bull; RNN/LSTM &bull; Transfer &bull; Transformers &bull; LLM APIs</span>
+        </div>
+      </a>
+
+      <nav class="nav-tabs" aria-label="Week 17-18 Navigation">
+        <button class="nav-btn active" data-tab="pytorch">
+          <span>🔥</span> PyTorch
+        </button>
+        <button class="nav-btn" data-tab="cnns">
+          <span>🖼️</span> CNNs
+        </button>
+        <button class="nav-btn" data-tab="sequence">
+          <span>🔁</span> RNN / LSTM / GRU
+        </button>
+        <button class="nav-btn" data-tab="regularization">
+          <span>🛡️</span> Regularization
+        </button>
+        <button class="nav-btn" data-tab="transfer">
+          <span>🚀</span> Transfer Learning
+        </button>
+        <button class="nav-btn" data-tab="transformers">
+          <span>🤗</span> Transformers
+        </button>
+        <button class="nav-btn" data-tab="llms">
+          <span>🤖</span> LLM Studio
+        </button>
+        <button class="nav-btn" data-tab="notebook">
+          <span>📓</span> Notebook
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <h2>Deep Learning Architectures, Transfer Learning &amp; Generative LLMs</h2>
+      <p>Week 17–18 comprehensive laboratory covering PyTorch autograd &amp; tensor computations, Convolutional Neural Networks (CNNs), Recurrent sequence architectures (RNN/LSTM/GRU), Regularization (Dropout, BatchNorm, Early Stopping), Pretrained Transfer Learning (ResNet-18), Hugging Face Transformers tokenization, and multi-provider LLM API orchestration.</p>
+      <div class="hero-tags">
+        <span class="hero-pill">🔥 PyTorch 2.6 &bull; CUDA Acceleration</span>
+        <span class="hero-pill">🖼️ 2D Convolutions &bull; Feature Maps</span>
+        <span class="hero-pill">🔁 LSTM &amp; GRU Sequence Modeling</span>
+        <span class="hero-pill">🛡️ Dropout &bull; BatchNorm &bull; Early Stopping</span>
+        <span class="hero-pill">🚀 ResNet-18 Transfer Learning</span>
+        <span class="hero-pill">🤗 Hugging Face Pipeline</span>
+        <span class="hero-pill">🤖 OpenAI &bull; Claude &bull; Ollama LLM Studio</span>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 1: PYTORCH BASICS ═══ -->
+    <section class="tab-content active" id="pane-pytorch">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🔥</span> PyTorch Core: Tensors, Autograd &amp; Training Loop</h3>
+          <p>Inspect automatic GPU device allocation, tensor mathematical operations, computational graphs, and automatic differentiation (Autograd).</p>
+        </div>
+
+        <div id="pytorch-basics-grid" class="grid-3">
+          <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+            <span class="spinner"></span> Inspecting PyTorch tensors &amp; Autograd…
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 2: CNNs ═══ -->
+    <section class="tab-content" id="pane-cnns">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🖼️</span> Convolutional Neural Network (CNN) Image Classifier</h3>
+          <p>Deep 2D Convolutional pipeline with spatial pooling, batch normalization, and feature map extraction.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
+          <div class="canvas-wrapper">
+            <div class="chart-title">CNN Training Loss &amp; Validation Accuracy Trajectory</div>
+            <canvas id="canvas-cnn-training" width="550" height="280"></canvas>
+          </div>
+          <div id="cnn-stats-box" class="bench-card"></div>
+        </div>
+
+        <div class="card-panel" style="background: rgba(10, 16, 30, 0.4);">
+          <div class="panel-header">
+            <h4><span>📐</span> Layer-by-Layer Architecture &amp; Tensor Transformations</h4>
+          </div>
+          <div id="cnn-layers-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 3: SEQUENCE MODELS ═══ -->
+    <section class="tab-content" id="pane-sequence">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🔁</span> Sequence Modeling: Vanilla RNN vs. LSTM vs. GRU</h3>
+          <p>Benchmarking recurrent neural network architectures on temporal sequence forecasting, comparing parameter complexity and gradient propagation.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
+          <div class="canvas-wrapper">
+            <div class="chart-title">Sequential Forecasting MSE Loss Curves</div>
+            <canvas id="canvas-seq-loss" width="550" height="280"></canvas>
+          </div>
+          <div id="seq-models-grid" class="grid-1" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 4: REGULARIZATION ═══ -->
+    <section class="tab-content" id="pane-regularization">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🛡️</span> Deep Learning Regularization: Eliminating Overfitting</h3>
+          <p>Comparing an unregularized deep network against a regularized model combining Dropout (p=0.35), Batch Normalization, and Early Stopping.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
+          <div class="canvas-wrapper">
+            <div class="chart-title">Unregularized Model (High Generalization Gap)</div>
+            <canvas id="canvas-reg-unreg" width="550" height="260"></canvas>
+          </div>
+          <div class="canvas-wrapper">
+            <div class="chart-title">Regularized Model (Dropout + BatchNorm + Early Stopping)</div>
+            <canvas id="canvas-reg-reg" width="550" height="260"></canvas>
+          </div>
+        </div>
+
+        <div id="reg-summary-box" class="grid-2"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 5: TRANSFER LEARNING ═══ -->
+    <section class="tab-content" id="pane-transfer">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🚀</span> Transfer Learning with Pretrained ResNet-18</h3>
+          <p>Leveraging deep representations learned on ImageNet (1.2M images), freezing lower-level convolutional feature extractors, and fine-tuning a custom academic classifier head.</p>
+        </div>
+
+        <div id="transfer-info-box"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 6: HUGGING FACE TRANSFORMERS ═══ -->
+    <section class="tab-content" id="pane-transformers">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🤗</span> Hugging Face Transformers Pipeline &amp; Tokenization</h3>
+          <p>Explore full text preprocessing: Sub-word tokenization, <code>[CLS]</code>/<code>[SEP]</code> tokens, Input IDs, Attention Masks, and Softmax classification probabilities.</p>
+        </div>
+
+        <form id="transformers-form" style="margin-bottom: 1.5rem;">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Input Text for Transformer Analysis</label>
+            <textarea id="trans-input" class="form-textarea" placeholder="Enter text to analyze...">The student demonstrated outstanding problem-solving capability, extraordinary diligence, and brilliant teamwork throughout the semester.</textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="btn-trans-analyze">
+            <span>🤗</span> Run Hugging Face Analysis
+          </button>
+        </form>
+
+        <div id="transformers-result-box" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 7: LLM STUDIO ═══ -->
+    <section class="tab-content" id="pane-llms">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🤖</span> Multi-Provider LLM API &amp; Open Models Studio</h3>
+          <p>Experiment with commercial LLM APIs (OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet) and Open-Weight models (Llama-3-8B via Ollama, Mistral-7B via Hugging Face) for Generation, Summarization, and Q&amp;A.</p>
+        </div>
+
+        <form id="llm-form" style="margin-bottom: 1.5rem;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">LLM Provider</label>
+              <select id="llm-provider" class="form-select">
+                <option value="openai" selected>OpenAI API</option>
+                <option value="anthropic">Anthropic Claude</option>
+                <option value="ollama">Ollama (Local / Open-Weight)</option>
+                <option value="huggingface">Hugging Face Inference</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Model Architecture</label>
+              <select id="llm-model" class="form-select">
+                <option value="gpt-4o-mini" selected>gpt-4o-mini</option>
+                <option value="claude-3-5-sonnet">claude-3-5-sonnet</option>
+                <option value="llama-3-8b-instruct">llama-3-8b-instruct</option>
+                <option value="mistral-7b-instruct">mistral-7b-instruct</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Task Type</label>
+              <select id="llm-task" class="form-select">
+                <option value="generation" selected>Text Generation</option>
+                <option value="summarization">Text Summarization</option>
+                <option value="qa">Technical Question &amp; Answering</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">User Prompt / Instructions</label>
+            <textarea id="llm-prompt" class="form-textarea" placeholder="Enter prompt...">Explain how Multi-Head Attention improves contextual modeling compared to recurrent RNNs.</textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-llm-run">
+            <span>⚡</span> Execute LLM Inference
+          </button>
+        </form>
+
+        <div id="llm-output-box" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 8: NOTEBOOK ═══ -->
+    <section class="tab-content" id="pane-notebook">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>📓</span> Jupyter Notebook Walkthrough</h3>
+          <p>Complete laboratory code covering PyTorch fundamentals, CNNs, RNNs/LSTMs, Transfer Learning, Transformers, and LLM APIs.</p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <span class="hero-pill">📁 File: <code>notebooks/week17_week18_deep_learning_llms.ipynb</code></span>
+          <span class="hero-pill">⚡ Engine: PyTorch 2.6 (CUDA RTX 4070)</span>
+          <span class="hero-pill">🏁 Status: Verified &amp; Ready</span>
+        </div>
+
+        <h4 style="margin-bottom: 0.5rem; color: #6ee7b7;">Run the Notebook Locally:</h4>
+        <div class="code-box">
+cd "WEEK 17 - WEEK 18"
+jupyter notebook notebooks/week17_week18_deep_learning_llms.ipynb
+        </div>
+
+        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: #6ee7b7;">Run the Web Dashboard:</h4>
+        <div class="code-box">
+cd "WEEK 17 - WEEK 18"
+python app.py
+# Access at http://localhost:5008
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
