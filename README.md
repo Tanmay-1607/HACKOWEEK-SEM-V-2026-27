@@ -25,6 +25,7 @@ Comprehensive repository for **HACKOWEEK 5th Semester** coursework, practicals, 
 | [**WEEK9 - WEEK10**](./WEEK9%20-%20WEEK10/) | **ML Pipelines & Clustering** | Scikit-Learn `ColumnTransformer` pipelines, Stratified K-Fold CV, ROC-AUC curves, K-Means, Hierarchical & DBSCAN clustering |
 | [**WEEK11 - WEEK12**](./WEEK11%20-%20WEEK12/) | **Dimensionality Reduction** | Principal Component Analysis (PCA) & t-distributed Stochastic Neighbor Embedding (t-SNE) projections |
 | [**WEEK 13 - WEEK 14**](./WEEK%2013%20-%20WEEK%2014/) | **Ensemble Methods & Regularization** | Bagging (Random Forest), Boosting (GradientBoosting, XGBoost, LightGBM), Bias-Variance trade-off, Overfitting/Underfitting diagnostics, L1/L2 regularization & C-sweep studio |
+| [**WEEK 15 - WEEK 16**](./WEEK%2015%20-%20WEEK%2016/) | **Neural Networks from Scratch & Model Deployment** | Model persistence (Pickle vs Joblib), Perceptrons & linear separability (XOR), Activation calculus (Sigmoid/ReLU/Leaky ReLU/Tanh), Loss functions, Optimizers (SGD, Adam), pure NumPy deep neural net |
 
 ---
 
@@ -38,7 +39,7 @@ cd HACKOWEEK-SEM-V-2026-27
 
 ### 2. Install Dependencies
 ```bash
-pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyter
+pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyter joblib
 ```
 
 ### 3. Running Practicals & Web Studios
@@ -86,9 +87,15 @@ pip install flask flask-cors pandas numpy scikit-learn matplotlib seaborn jupyte
 - **Week 13-14 (Ensemble Methods & Regularization Studio):**
   ```bash
   cd "WEEK 13 - WEEK 14"
-  pip install -r requirements or flask flask-cors scikit-learn pandas numpy xgboost lightgbm
   python app.py
   # Access at http://localhost:5006
+  ```
+
+- **Week 15-16 (Neural Networks & Model Deployment Studio):**
+  ```bash
+  cd "WEEK 15 - WEEK 16"
+  python app.py
+  # Access at http://localhost:5007
   ```
 
 ---

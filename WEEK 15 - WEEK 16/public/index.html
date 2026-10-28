@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Tanmay Sankulwar">
+  <meta name="student-prn" content="24070521058">
+  <title>Neural Networks &amp; Model Deployment Studio | Week 15 &amp; 16 HACKOWEEK</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand-wrapper">
+        <div class="brand-icon">🧠</div>
+        <div class="brand-text">
+          <h1>Neural Networks &amp; Deployment Studio</h1>
+          <span class="brand-badge">W15-W16: Pickle/Joblib &bull; Perceptrons &bull; SGD/Adam &bull; NumPy NN</span>
+        </div>
+      </a>
+
+      <nav class="nav-tabs" aria-label="Week 15-16 Navigation">
+        <button class="nav-btn active" data-tab="deployment">
+          <span>🚀</span> Model Deployment
+        </button>
+        <button class="nav-btn" data-tab="perceptrons">
+          <span>⚡</span> Perceptron &amp; Activations
+        </button>
+        <button class="nav-btn" data-tab="optimizers">
+          <span>📉</span> Losses &amp; Optimizers
+        </button>
+        <button class="nav-btn" data-tab="neuralnet">
+          <span>🔬</span> Neural Net from Scratch
+        </button>
+        <button class="nav-btn" data-tab="notebook">
+          <span>📓</span> Notebook
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <h2>Neural Networks from Scratch &amp; Model Deployment Basics</h2>
+      <p>Week 15–16 comprehensive laboratory for mastering production model serialization (Pickle vs. Joblib), Single Perceptrons &amp; Activation Calculus, Loss Functions, Gradient Descent &amp; Adam Optimizers, and a modular Deep Neural Network engineered entirely in NumPy.</p>
+      <div class="hero-tags">
+        <span class="hero-pill">📦 Pickle &amp; Joblib Serialization</span>
+        <span class="hero-pill">⚡ Perceptron &amp; Linear Separability</span>
+        <span class="hero-pill">📐 Sigmoid, ReLU, Leaky ReLU, Tanh Derivatives</span>
+        <span class="hero-pill">🎯 Binary Cross-Entropy &amp; MSE</span>
+        <span class="hero-pill">🚀 SGD with Momentum &amp; Adam Optimizer</span>
+        <span class="hero-pill">🧠 NumPy Multi-Layer Perceptron (MLP)</span>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 1: MODEL DEPLOYMENT (PICKLE VS JOBLIB) ═══ -->
+    <section class="tab-content active" id="pane-deployment">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>📦</span> Model Deployment: Serialization Benchmark</h3>
+          <p>Saving and loading trained machine learning pipelines using Python's native <code>pickle</code> versus Scikit-Learn's optimized <code>joblib</code> with compression.</p>
+        </div>
+
+        <div id="deployment-bench-grid" class="grid-2">
+          <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+            <span class="spinner"></span> Benchmarking Pickle &amp; Joblib serialization…
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Deployed Inference Test -->
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>⚡</span> Real-Time Production Inference Playground</h3>
+          <p>Submit raw student metrics to dynamically deserialize the saved artifact from disk, execute full preprocessing, and compute instant predictions.</p>
+        </div>
+
+        <form id="inference-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Backend Serialization Engine</label>
+              <select id="deploy-backend" class="form-select">
+                <option value="joblib" selected>Joblib (Compressed .joblib)</option>
+                <option value="pickle">Pickle (.pkl)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Age</label>
+              <input type="number" id="input-age" class="form-input" value="20" min="16" max="30">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Study Hours / Week</label>
+              <input type="number" id="input-study" class="form-input" value="28" min="1" max="60">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Attendance Rate (%)</label>
+              <input type="number" id="input-attendance" class="form-input" value="88" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Math Score (0-100)</label>
+              <input type="number" id="input-math" class="form-input" value="85" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Reading Score (0-100)</label>
+              <input type="number" id="input-reading" class="form-input" value="82" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Writing Score (0-100)</label>
+              <input type="number" id="input-writing" class="form-input" value="86" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Department</label>
+              <select id="input-dept" class="form-select">
+                <option value="Computer Science" selected>Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Gender</label>
+              <select id="input-gender" class="form-select">
+                <option value="Female" selected>Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-predict">
+            <span>⚡</span> Execute Live Deployed Prediction
+          </button>
+        </form>
+
+        <div id="prediction-result-box" style="margin-top: 1.5rem; display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 2: PERCEPTRONS & ACTIVATIONS ═══ -->
+    <section class="tab-content" id="pane-perceptrons">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>⚡</span> The Perceptron: Linear Separability &amp; The XOR Dilemma</h3>
+          <p>Simulating the single-layer Perceptron learning algorithm on 2-input boolean logic gates. Notice how AND, OR, and NAND converge smoothly, while XOR fails due to linear inseparability (Minsky &amp; Papert, 1969).</p>
+        </div>
+
+        <div id="logic-gates-grid" class="grid-4">
+          <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+            <span class="spinner"></span> Evaluating logic gates…
+          </div>
+        </div>
+      </div>
+
+      <!-- Activation Functions & Derivatives -->
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>📐</span> Activation Functions &amp; Their Analytical Derivatives</h3>
+          <p>Non-linear activation functions enable deep neural networks to learn universal function approximations. Inspect values and backpropagation gradients across [-5, 5].</p>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+          <button class="btn-secondary act-btn active" data-act="Sigmoid">Sigmoid (σ)</button>
+          <button class="btn-secondary act-btn" data-act="ReLU">ReLU</button>
+          <button class="btn-secondary act-btn" data-act="Leaky ReLU">Leaky ReLU (α=0.1)</button>
+          <button class="btn-secondary act-btn" data-act="Tanh">Tanh</button>
+        </div>
+
+        <div class="grid-2">
+          <div class="canvas-wrapper">
+            <div class="chart-title">
+              <span id="act-chart-title">Sigmoid Activation &amp; Derivative</span>
+              <span style="font-size: 0.75rem; color: var(--accent-sky);">Blue = f(z) | Green = f'(z)</span>
+            </div>
+            <canvas id="canvas-activation" width="550" height="300"></canvas>
+          </div>
+          <div>
+            <div id="act-info-box" class="bench-card" style="height: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 3: LOSSES & OPTIMIZERS ═══ -->
+    <section class="tab-content" id="pane-optimizers">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>📈</span> Optimization Algorithms: SGD vs. Momentum vs. Adam</h3>
+          <p>Training an identical multi-layer neural network on the Student Performance dataset to compare convergence speed, gradient oscillations, and final loss trajectories.</p>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 1.5rem;">
+          <div class="canvas-wrapper">
+            <div class="chart-title">Training Loss Trajectories across Epochs</div>
+            <canvas id="canvas-opt-loss" width="550" height="280"></canvas>
+          </div>
+          <div class="canvas-wrapper">
+            <div class="chart-title">Validation Accuracy Trajectories across Epochs</div>
+            <canvas id="canvas-opt-acc" width="550" height="280"></canvas>
+          </div>
+        </div>
+
+        <div id="optimizer-summary-grid" class="grid-3">
+          <div style="text-align: center; color: var(--text-muted); padding: 1.5rem;">
+            <span class="spinner"></span> Running optimizer benchmarks…
+          </div>
+        </div>
+      </div>
+
+      <!-- Loss Functions Reference Card -->
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🎯</span> Core Loss Functions in Neural Networks</h3>
+          <p>Mathematical definitions and gradient formulations used for forward loss calculation and backpropagation.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="bench-card">
+            <div class="bench-card-title" style="color: var(--accent-emerald);">Binary Cross-Entropy (BCE)</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Used for binary classification tasks (e.g., Distinction vs. Regular student performance).</p>
+            <div class="code-box" style="font-size: 0.75rem;">L = - (1/m) * Σ [y*log(ŷ) + (1-y)*log(1-ŷ)]
+Gradient w.r.t logits (z):
+∂L/∂z = ŷ - y</div>
+          </div>
+          <div class="bench-card">
+            <div class="bench-card-title" style="color: var(--accent-sky);">Categorical Cross-Entropy</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Used with Softmax for multi-class classification problems.</p>
+            <div class="code-box" style="font-size: 0.75rem;">L = - (1/m) * Σ Σ [y_ik * log(ŷ_ik)]
+Gradient with Softmax output:
+∂L/∂z_i = ŷ_i - y_i</div>
+          </div>
+          <div class="bench-card">
+            <div class="bench-card-title" style="color: var(--accent-amber);">Mean Squared Error (MSE)</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Used for continuous numerical regression tasks.</p>
+            <div class="code-box" style="font-size: 0.75rem;">L = (1 / 2m) * Σ (ŷ - y)²
+Gradient w.r.t predictions:
+∂L/∂ŷ = (1/m) * (ŷ - y)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 4: NEURAL NET FROM SCRATCH ═══ -->
+    <section class="tab-content" id="pane-neuralnet">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>🔬</span> Pure NumPy Deep Neural Network Trainer</h3>
+          <p>Configure arbitrary hidden layers, activation functions, optimizers, learning rate, and epochs. The engine runs forward propagation, computes BCE loss, and executes backpropagation using the chain rule without high-level deep learning frameworks.</p>
+        </div>
+
+        <!-- Hyperparameter Controls -->
+        <form id="train-nn-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Hidden Layer 1 (Neurons)</label>
+              <input type="number" id="nn-h1" class="form-input" value="16" min="2" max="64">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Hidden Layer 2 (Neurons)</label>
+              <input type="number" id="nn-h2" class="form-input" value="8" min="0" max="64">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Hidden Activation</label>
+              <select id="nn-act" class="form-select">
+                <option value="relu" selected>ReLU</option>
+                <option value="leaky_relu">Leaky ReLU</option>
+                <option value="tanh">Tanh</option>
+                <option value="sigmoid">Sigmoid</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Optimizer</label>
+              <select id="nn-opt" class="form-select">
+                <option value="adam" selected>Adam (Adaptive Moment Estimation)</option>
+                <option value="momentum">SGD with Momentum (β=0.9)</option>
+                <option value="sgd">Standard SGD</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Learning Rate (α)</label>
+              <input type="number" id="nn-lr" class="form-input" value="0.01" step="0.001" min="0.0001" max="0.5">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Training Epochs</label>
+              <input type="number" id="nn-epochs" class="form-input" value="120" min="20" max="300">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-train-nn">
+            <span>🚀</span> Train Scratch Neural Network
+          </button>
+        </form>
+      </div>
+
+      <!-- Live Training Results -->
+      <div id="nn-results-container" style="display: none;">
+        <div class="card-panel">
+          <div class="panel-header">
+            <h3><span>📊</span> Scratch Network Training Metrics &amp; Curves</h3>
+            <p id="nn-arch-label" style="font-family: var(--font-mono); color: var(--accent-sky);"></p>
+          </div>
+
+          <div class="grid-2" style="margin-bottom: 1.5rem;">
+            <div class="canvas-wrapper">
+              <div class="chart-title">Train vs. Validation Loss (BCE)</div>
+              <canvas id="canvas-scratch-loss" width="550" height="260"></canvas>
+            </div>
+            <div class="canvas-wrapper">
+              <div class="chart-title">Train vs. Validation Accuracy (%)</div>
+              <canvas id="canvas-scratch-acc" width="550" height="260"></canvas>
+            </div>
+          </div>
+
+          <div id="nn-metrics-grid" class="grid-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TAB 5: JUPYTER NOTEBOOK ═══ -->
+    <section class="tab-content" id="pane-notebook">
+      <div class="card-panel">
+        <div class="panel-header">
+          <h3><span>📓</span> Jupyter Notebook Walkthrough</h3>
+          <p>The complete end-to-end laboratory notebook covers model deployment benchmarks, perceptron math, activation calculus, and the NumPy MLP.</p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <span class="hero-pill">📁 File: <code>notebooks/week15_week16_neural_network_deployment.ipynb</code></span>
+          <span class="hero-pill">⚡ Engine: Scratch NumPy Engine &amp; Scikit-Learn</span>
+          <span class="hero-pill">🏁 Status: Verified &amp; Ready</span>
+        </div>
+
+        <h4 style="margin-bottom: 0.5rem; color: #6ee7b7;">Run the Notebook Locally:</h4>
+        <div class="code-box">
+cd "WEEK 15 - WEEK 16"
+jupyter notebook notebooks/week15_week16_neural_network_deployment.ipynb
+        </div>
+
+        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: #6ee7b7;">Run the Web Dashboard:</h4>
+        <div class="code-box">
+cd "WEEK 15 - WEEK 16"
+python app.py
+# Access at http://localhost:5007
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
